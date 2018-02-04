@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+    base_container:
+        build:
+            args:
+                CODE_BASE: 'alpine:3.6'
+            cache_from:
+                - alpine:3.6
+            context: .
+        image: base_container:20180204

@@ -2,4 +2,4 @@ README.md
 docker-compose.yml
 .lfs*
 .git*
-vols/*
+vols*/*

@@ -1,4 +1,5 @@
-FROM alpine:3.6
+ARG  CODE_BASE=alpine:3.6
+FROM ${CODE_BASE}
 
 ARG TZ='America/New_York'
 
@@ -14,7 +15,8 @@ RUN set -o verbose \
     && apk update \
     && apk add --no-cache bash \
     && chmod u+rwx /tmp/container/build.sh \
-    && /tmp/container/build.sh 'BASE' "$TZ" \
-    && rm -rf /tmp/*
-    
+    && /tmp/container/build.sh 'BASE' "$TZ"
+RUN rm -rf /tmp/*
+
+SHELL [ "/bin/bash" ]    
 ENTRYPOINT [ "docker-entrypoint.sh" ]
