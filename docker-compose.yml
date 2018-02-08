@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.2'
 
 services:
     base_container:
@@ -8,4 +8,4 @@ services:
             cache_from:
                 - alpine:3.6
             context: .
-        image: base_container:20180204
+        image: base_container:20180207

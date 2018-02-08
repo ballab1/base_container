@@ -1,10 +1,10 @@
-ARG  CODE_BASE=alpine:3.6
-FROM ${CODE_BASE}
+ARG CODE_VERSION=alpine:3.6
+FROM ${CODE_VERSION} 
 
 ARG TZ='America/New_York'
 
-ENV VERSION=1.0.0 \
-    TZ="$TZ"
+ENV TZ="$TZ" \
+    VERSION=1.0.0
 LABEL version=$VERSION
 
 # Add configuration and customizations
@@ -17,6 +17,3 @@ RUN set -o verbose \
     && chmod u+rwx /tmp/container/build.sh \
     && /tmp/container/build.sh 'BASE' "$TZ"
 RUN rm -rf /tmp/*
-
-SHELL [ "/bin/bash" ]    
-ENTRYPOINT [ "docker-entrypoint.sh" ]
