@@ -8,6 +8,4 @@ services:
             cache_from:
                 - alpine:3.6
             context: .
-        depends_on:
-            - alpine:3.6
         image: base_container:20180210
