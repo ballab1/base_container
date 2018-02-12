@@ -1,11 +1,14 @@
-ARG CODE_VERSION=alpine:3.6
-FROM ${CODE_VERSION} 
+ARG FROM_BASE=alpine:3.6
+FROM ${FROM_BASE} 
 
-ARG TZ='America/New_York'
+# version of this docker image
+ARG CONTAINER_VERSION=1.0.0 
+LABEL version=$CONTAINER_VERSION  
 
-ENV TZ="$TZ" \
-    VERSION=1.0.0
-LABEL version=$VERSION
+ENV TZ="$TZ"
+
+# version of this docker image
+LABEL version=$CONTAINER_VERSION  
 
 # Add configuration and customizations
 COPY build /tmp/
