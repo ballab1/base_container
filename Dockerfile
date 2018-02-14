@@ -5,7 +5,8 @@ FROM ${FROM_BASE}
 ARG CONTAINER_VERSION=1.0.0 
 LABEL version=$CONTAINER_VERSION  
 
-ENV TZ="$TZ"
+ARG TZ="$TZ"
+ENV TZ "$TZ"
 
 # version of this docker image
 LABEL version=$CONTAINER_VERSION  
