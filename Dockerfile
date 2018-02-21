@@ -18,6 +18,6 @@ COPY build /tmp/
 RUN set -o verbose \
     && apk update \
     && apk add --no-cache bash \
-    && chmod u+rwx /tmp/container/build.sh \
-    && /tmp/container/build.sh 'BASE' "$TZ"
+    && chmod u+rwx /tmp/build.sh \
+    && /tmp/build.sh 'BASE' "$TZ"
 RUN rm -rf /tmp/*
