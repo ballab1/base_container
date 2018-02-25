@@ -1,3 +1,5 @@
 # base Packages
 
-apk add --no-cache musl-utils
+if [ "${CBF['os_id']}" = 'alpine' ]; then
+    apk add --no-cache musl-utils
+fi
