@@ -11,4 +11,7 @@ services:
             cache_from:
                 - alpine:3.6
             context: .
+            dockerfile: Dockerfile
+        environment:
+            CONTAINER_NAME: base_container
         image: base_container:20180217
