@@ -4,6 +4,7 @@ services:
     base_container:
         build:
             args:
+                CONTAINER_NAME: base_container
                 CONTAINER_VERSION: 1.0.2
                 DEBUG_TRACE: 0
                 FROM_BASE: alpine:3.6
@@ -12,6 +13,4 @@ services:
                 - alpine:3.6
             context: .
             dockerfile: Dockerfile
-        environment:
-            CONTAINER_NAME: base_container
         image: base_container:20180217

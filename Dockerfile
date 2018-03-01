@@ -5,8 +5,8 @@ FROM ${FROM_BASE}
 ARG CONTAINER_NAME=base_container
 ARG CONTAINER_VERSION=1.0.0
 
-LABEL org_name=$CONTAINER_NAME
-LABEL version=$CONTAINER_VERSION 
+LABEL org_name=$CONTAINER_NAME \
+      version=$CONTAINER_VERSION 
 
 # set to non zero for the framework to show verbose action scripts
 ARG DEBUG_TRACE=0
@@ -26,4 +26,4 @@ RUN set -o verbose \
     && apk add --no-cache bash \
     && chmod u+rwx /tmp/build.sh \
     && /tmp/build.sh "$CONTAINER_NAME" "$TZ"
-RUN rm -rf /tmp/*
+RUN [[ $DEBUG_TRACE == 0 ]] && rm -rf /tmp/* 
