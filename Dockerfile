@@ -14,7 +14,7 @@ ARG DEBUG_TRACE=0
 
 # set timezone in base, so we do not need to do this again
 ARG TZ="America/New_York"
-ENV TZ "$TZ"
+ENV TZ="$TZ"
 
 
 # Add configuration and customizations
@@ -26,4 +26,4 @@ RUN set -o verbose \
     && apk add --no-cache bash \
     && chmod u+rwx /tmp/build.sh \
     && /tmp/build.sh "$CONTAINER_NAME" "$TZ"
-RUN [[ $DEBUG_TRACE == 0 ]] && rm -rf /tmp/* 
+RUN [[ $DEBUG_TRACE != 0 ]] || rm -rf /tmp/* 
