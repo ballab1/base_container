@@ -22,6 +22,8 @@ COPY build /tmp/
 
 # build content
 RUN set -o verbose \
+    && echo http://mirror.yandex.ru/mirrors/alpine/v3.5/main >> /etc/apk/repositories \
+    && echo http://mirror.yandex.ru/mirrors/alpine/v3.5/community >> /etc/apk/repositories \
     && apk update \
     && apk add --no-cache bash \
     && chmod u+rwx /tmp/build.sh \
