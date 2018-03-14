@@ -28,4 +28,4 @@ RUN set -o verbose \
     && apk add --no-cache bash \
     && chmod u+rwx /tmp/build.sh \
     && /tmp/build.sh "$CONTAINER_NAME" "$TZ"
-RUN [[ $DEBUG_TRACE != 0 ]] || rm -rf /tmp/* 
+RUN [ $DEBUG_TRACE != 0 ] || rm -rf /tmp/* \n 

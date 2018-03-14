@@ -13,4 +13,4 @@ services:
                 - alpine:3.6
             context: .
             dockerfile: Dockerfile
-        image: base_container:20180311
+        image: base_container:20180314
