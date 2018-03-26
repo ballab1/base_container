@@ -3,7 +3,7 @@ FROM ${FROM_BASE}
 
 # name and version of this docker image
 ARG CONTAINER_NAME=base_container
-ARG CONTAINER_VERSION=1.0.0
+ARG CONTAINER_VERSION=1.0.7
 
 LABEL org_name=$CONTAINER_NAME \
       version=$CONTAINER_VERSION 
