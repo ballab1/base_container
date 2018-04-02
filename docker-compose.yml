@@ -4,6 +4,7 @@ services:
     base_container:
         build:
             args:
+                CBF_VERSION: ${CBF_VERSION:-dev}
                 CONTAINER_NAME: base_container
                 CONTAINER_VERSION: 1.0.8
                 DEBUG_TRACE: 0
