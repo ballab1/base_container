@@ -1,7 +1,0 @@
-# base Packages
-
-if [ "${CBF['os_id']}" = 'alpine' ]; then
-    declare PKGS='ca-certificates openssl shadow'
-    package.checkIfInstalled "$PKGS"
-    apk add --no-cache $PKGS
-fi
