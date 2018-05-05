@@ -1,18 +1,19 @@
-version: '3.5'
+version: '3.3'
 
 services:
-    base_container:
+    base:
         build:
             args:
-                CBF_VERSION: ${CBF_VERSION:-dev}
+                CBF_VERSION: "${CBF_VERSION:-}"
                 CONTAINER_NAME: base_container
-                CONTAINER_VERSION: 1.0.8
-                FROM_BASE: alpine:3.6
-                TZ: 'America/New_York'
+                CONTAINER_VERSION: ${CONTAINER_VERSION:-3.0.0}
+                FROM_BASE: alpine:3.8
+                TZ: "America/New_York"
             cache_from:
-                - alpine:3.6
+                - alpine:3.8
             context: .
             dockerfile: Dockerfile
+        container_name: base
         environment:
             DEBUG_TRACE: ${DEBUG_TRACE:-0}
         image: base_container:${CONTAINER_TAG:-latest}
