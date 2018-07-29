@@ -18,7 +18,7 @@ services:
                 container.git.commit: $CONTAINER_GIT_COMMIT
                 container.git.url: $CONTAINER_GIT_URL
                 container.origin: $CONTAINER_ORIGIN
-                container.original.name: base
+                container.original.name: base_container
                 container.version: ${CONTAINER_VERSION:-3.0.0}
         container_name: base
         environment:
