@@ -6,13 +6,20 @@ services:
             args:
                 CBF_VERSION: "${CBF_VERSION:-}"
                 CONTAINER_NAME: base_container
-                CONTAINER_VERSION: ${CONTAINER_VERSION:-3.0.0}
                 FROM_BASE: ${DOCKER_REGISTRY:-}alpine:3.8
                 TZ: "America/New_York"
             cache_from:
                 - ${DOCKER_REGISTRY:-}alpine:3.8
             context: .
             dockerfile: Dockerfile
+            labels:
+                container.fingerprint: $CONTAINER_FINGERPRINT
+                container.git.branch: $CONTAINER_GIT_BRANCH
+                container.git.commit: $CONTAINER_GIT_COMMIT
+                container.git.url: $CONTAINER_GIT_URL
+                container.origin: $CONTAINER_ORIGIN
+                container.original.name: base_container
+                container.version: ${CONTAINER_VERSION:-3.0.0}
         container_name: base
         environment:
             DEBUG_TRACE: ${DEBUG_TRACE:-0}
