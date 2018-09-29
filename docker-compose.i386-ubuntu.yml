@@ -26,4 +26,4 @@ services:
         environment:
             DEBIAN_FRONTEND: noninteractive
             DEBUG_TRACE: ${DEBUG_TRACE:-0}
-        image: ${DOCKER_REGISTRY:-}${OS:-}base_container:${CONTAINER_TAG:-latest}
+        image: ${DOCKER_REGISTRY:-}${CONTAINER_OS:-i386-ubuntu/}base_container:${CONTAINER_TAG:-latest}
