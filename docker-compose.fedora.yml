@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+    base:
+        build:
+            args:
+                CBF_VERSION: ${CBF_VERSION:-}
+                CONTAINER_NAME: base_container
+                FROM_BASE: ${DOCKER_REGISTRY:-}fedora:28
+                TZ: "America/New_York"
+            cache_from:
+                - ${DOCKER_REGISTRY:-}fedora:28
+            context: .
+            dockerfile: Dockerfile
+            labels:
+                container.build.time: $CONTAINER_BUILD_TIME
+                container.fingerprint: $CONTAINER_FINGERPRINT
+                container.git.refs: $CONTAINER_GIT_REFS
+                container.git.commit: $CONTAINER_GIT_COMMIT
+                container.git.url: $CONTAINER_GIT_URL
+                container.origin: $CONTAINER_ORIGIN
+                container.original.name: base_container
+        container_name: base
+        environment:
+            DEBUG_TRACE: ${DEBUG_TRACE:-0}
+        image: ${DOCKER_REGISTRY:-}${CONTAINER_OS:-fedora/}base_container:${CONTAINER_TAG:-latest}
