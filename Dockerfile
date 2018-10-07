@@ -3,8 +3,6 @@ FROM ${FROM_BASE}
 
 # name and version of this docker image
 ARG CONTAINER_NAME=base_container
-# Specify CBF version to use with our configuration and customizations
-ARG CBF_VERSION
 
 # include our project files
 COPY build Dockerfile /tmp/
@@ -12,6 +10,10 @@ COPY build Dockerfile /tmp/
 # set to non zero for the framework to show verbose action scripts
 #    (0:default, 1:trace & do not cleanup; 2:continue after errors)
 ENV DEBUG_TRACE=0
+
+# Specify CBF version to use with our configuration and customizations
+ARG CBF_VERSION=master
+LABEL cbf.version=$CBF_VERSION
 
 
 # set timezone in base, so we do not need to do this again
