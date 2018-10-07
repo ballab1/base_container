@@ -1,3 +1,0 @@
-# base Packages
-
-declare -a PKGS=( )

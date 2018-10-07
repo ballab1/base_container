@@ -4,7 +4,7 @@ services:
     base:
         build:
             args:
-                CBF_VERSION: ${CBF_VERSION:-}
+                CBF_VERSION: ${CBF_VERSION:-master}
                 CONTAINER_NAME: base_container
                 FROM_BASE: ${DOCKER_REGISTRY:-}fedora:28
                 TZ: "America/New_York"
@@ -14,6 +14,7 @@ services:
             dockerfile: Dockerfile
             labels:
                 container.build.time: $CONTAINER_BUILD_TIME
+                container.cbf.version: $CBF_VERSION
                 container.fingerprint: $CONTAINER_FINGERPRINT
                 container.git.refs: $CONTAINER_GIT_REFS
                 container.git.commit: $CONTAINER_GIT_COMMIT
