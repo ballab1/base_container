@@ -1,0 +1,14 @@
+#!/bin/bash
+
+declare -r cert_home=/usr/local/share/ca-certificates
+
+#############################################################################
+# Update certs on system
+#############################################################################
+# copy kubernetes read-only mounted secrets over to expected directory
+if [ -d /mnt/data/ca-certificates ]; then
+    cp -f /mnt/data/ca-certificates/* "${cert_home}/" ||:
+fi
+
+# load certs via system
+update-ca-certificates -f ||:
