@@ -13,10 +13,10 @@ fi
 # load certs via system
 case "$( environ.OSid )" in
     alpine|ubuntu)
-        update-ca-certificates -f ||:
+        update-ca-certificates -f 1>&2 ||:
         ;;
     centos|fedora)
-        update-ca-trust extract ||:
+        update-ca-trust extract 1>&2 ||:
         ;;
 esac
 
