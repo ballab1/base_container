@@ -15,8 +15,8 @@ ENV DEBUG_TRACE=0
 
 
 # set timezone in base, so we do not need to do this again
-ARG TZ="America/New_York"
-ENV TZ="${TZ:-America/New_York}"
+ARG TZ="UTC"
+ENV TZ="${TZ:-UTC}"
 
 
 # build content
