@@ -1,4 +1,4 @@
-ARG FROM_BASE
+ARG FROM_BASE=${DOCKER_REGISTRY:-ubuntu-s2:5000/}${CONTAINER_OS:-alpine}:${OS_VERSION:-3.8} 
 FROM ${FROM_BASE} 
 
 # name and version of this docker image
@@ -15,8 +15,8 @@ ENV DEBUG_TRACE=0
 
 
 # set timezone in base, so we do not need to do this again
-ARG TZ="America/New_York"
-ENV TZ="${TZ:-America/New_York}"
+ARG TZ="UTC"
+ENV TZ="${TZ:-UTC}"
 
 
 # build content
