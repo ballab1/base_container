@@ -22,5 +22,5 @@ ENV TZ="${TZ:-UTC}"
 # build content
 RUN set -o verbose \
     && chmod u+rwx /tmp/build.sh \
-    && /tmp/build.sh "$CONTAINER_NAME" "$DEBUG_TRACE" "$TZ"
-RUN [ $DEBUG_TRACE != 0 ] || rm -rf /tmp/*
+    && /tmp/build.sh "$CONTAINER_NAME" "$DEBUG_TRACE" "$TZ" \
+    && [ "$DEBUG_TRACE" != 0 ] || rm -rf /tmp/*
