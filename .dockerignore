@@ -10,6 +10,8 @@
 docker-compose.*
 bin/*
 vols*/*
+build/libs
+build/tmp
 **/CRF.properties
 **/CBF.properties
 **/scanned.paths

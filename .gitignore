@@ -5,6 +5,9 @@
 *.zip
 **/*.bak
 *.log
+build/libs
+build/tmp
+
 
 # OSX
 .DS_Store

@@ -1,0 +1,21 @@
+
+
+defaultTasks('me')
+
+
+ext.container_git_commit = '......................'
+
+dependencies {
+    container_git_commit
+}
+
+task me {
+    ext.x = 123
+    doLast {
+        dockerCompose.buildTask
+    }
+}
+
+ext.container_git_commit = {
+  println 'container_git_commit'
+}
