@@ -1,3 +1,3 @@
 #!/bin/bash
 
-crf.fixupDirectory "$WORKDIR"
+[ "$WORKDIR" = '/' ] || crf.fixupDirectory "$WORKDIR"
