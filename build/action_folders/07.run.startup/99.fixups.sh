@@ -35,4 +35,13 @@ for dir in "${fixup_dirs[@]}"; do
     done
     crf.fixupDirectory "$dir"
 done
-chmod 777 /var/log
+
+# make sure we can read/write everythin on /var/log
+declare x
+for x in $(find /var/log -type d); do
+    chmod 777 "$x"
+done
+for x in $(find /var/log -type f); do
+    chmod a+rw "$x"
+done
+
