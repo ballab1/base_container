@@ -1,0 +1,7 @@
+#!/bin/bash
+
+declare -A CERTS=()
+CERTS['file']="/tmp/CERTS.zip"
+CERTS['url']="https://s3.ubuntu.home/webdav/home/Downloads/certs.zip"
+#CERTS['sha256']="5c7f1899ea6634773f0439729f92464f6b823c51f361273f519ef90aec2b64c1"
+CERTS['sha256']="76d7ffb8ec43f381d29c27b7343064b58e40d6e979e73309cbeec514d7798438"
