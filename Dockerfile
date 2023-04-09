@@ -1,4 +1,4 @@
-ARG FROM_BASE=${DOCKER_REGISTRY:-s2.ubuntu.home:5000/}thirdparty/${CONTAINER_OS:-alpine}:${OS_VERSION:-3.15.7} 
+ARG FROM_BASE=${DOCKER_REGISTRY:-s2.ubuntu.home:5000/}thirdparty/${CONTAINER_OS:-alpine}:${OS_VERSION:-3.15.8} 
 FROM ${FROM_BASE} 
 
 # name and version of this docker image
