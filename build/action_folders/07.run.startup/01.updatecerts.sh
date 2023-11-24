@@ -31,11 +31,11 @@ type -f keytool &> /dev/null || exit 0
 # Readlink to find out location diff between JDK and JRE installation
 declare -r java_cert_home=$(readlink -f $(dirname $(readlink -f $(which java)))/../lib/security/cacerts)
 while read -r cert; do
-    aliasname=DellEMC_${cert%.*}
-    echo "$aliasname -> $cert into ${java_cert_home}"
+    echo "${cert%.*} -> $cert into ${java_cert_home}"
     keytool -noprompt \
             -storepass changeit \
             -keystore "${java_cert_home}" \
+            -cacerts \
             -import -alias "$cert" \
             -file "${cert_home}/${cert}" \
     || echo "Failed to load $cert into JVM cacert"
