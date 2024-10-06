@@ -34,9 +34,10 @@ while read -r cert; do
     echo "${cert%.*} -> $cert into ${java_cert_home}"
     keytool -noprompt \
             -storepass changeit \
-            -keystore "${java_cert_home}" \
             -cacerts \
             -import -alias "$cert" \
             -file "${cert_home}/${cert}" \
     || echo "Failed to load $cert into JVM cacert"
 done < <(cd "${cert_home}"; ls -1A)
+
+#            -keystore "${java_cert_home}" \
