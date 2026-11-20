@@ -29,11 +29,11 @@ for dir in "${fixup_dirs[@]}"; do
     [ -z "${dir:-}" ] && continue
     for ex in "${exceptions[@]}"; do
         if [ "$dir" = "$ex" ]; then
-            term.elog "setting of '$dir' not permitted. Ignoring" 'yellow'
+            term::elog "setting of '$dir' not permitted. Ignoring" 'yellow'
             continue 2
         fi
     done
-    crf.fixupDirectory "$dir"
+    crf::fixupDirectory "$dir"
 done
 
 # make sure we can read/write everythin on /var/log
